@@ -1,8 +1,8 @@
 {
 	"databaseURI": "mongodb://localhost:27017/dev",
 	"cloud": "./cloud/main.js",
-        "port": 8080,
-	"appId": "",
-	"masterKey":"",
+        "port": 9992,
+	"appId": "Music Map",
+	"masterKey":"testServer123",
 	"fileKey": ""
 }
