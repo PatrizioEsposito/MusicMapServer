@@ -7,7 +7,6 @@ var serverp = require('parse-server').ParseServer;
 var config = require('config');
 var app = express();
 var http_server = require('http').createServer(app);
-var socket = require('socket.io')(http_server);
 var ParseDashboard = require('parse-dashboard');
 
 /* Funzioni */
@@ -42,15 +41,8 @@ app.get('/', function(req, res) {
   res.status(200).send('Parse Dashboard installata ed avviata! <3');
 });
 
-app.get('/http_listener', function(request, response, next){
-  response.status(200).send('Il server è disponibile a ricevere messaggi!');
-});
-
 /* Server listener */
 var server = app.listen(config.get('port'), '0.0.0.0', function() {
   console.log('Server in ascolto su http://%s:%s', server.address().address,
     server.address().port);
-});
-var dashboard_server = app.listen(4040, function(){
-  console.log("Parse Dashboard disponibile sulla porta 4040 all'indirizzo ../dashboard!");
 });
